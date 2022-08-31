@@ -15,10 +15,7 @@ function Home() {
       .then((data) => {
         console.log(data);
         setData([data]);
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      });
     }
   
       useEffect(() => {
