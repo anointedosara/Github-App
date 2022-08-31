@@ -93,7 +93,7 @@ code {
   max-width: 1540px;
   margin: 0 auto;
   width: 1127px;
-  padding: 16px 0 0 0;
+  padding: 14px 0 0 0;
 }
 
 .about div {
@@ -121,7 +121,7 @@ code {
   max-width: 1540px;
   width: 1127px;
   margin: 0 auto;
-  padding: 16px 0 0 0;
+  padding: 14px 0 0 0;
 }
 
 .home div {
@@ -299,7 +299,7 @@ code {
   }
   .home {
     width: 100%;
-    padding: 0 20px;
+    padding: 14px 20px 0 20px;
   }
   .more {
     width: 100% !important;

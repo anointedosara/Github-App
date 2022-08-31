@@ -4,17 +4,24 @@ import { Link } from 'react-router-dom'
 function Home() {
     const [search, setSearch] = useState('anointedosara')
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = (e) => {
       e.preventDefault()
     }
 
     const getData = async () => {
+      setLoading(true);
       fetch(`https://api.github.com/users/${search}`)
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
         setData([data]);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+        setLoading(false);
       });
     }
   
@@ -31,6 +38,8 @@ function Home() {
         </div>
         <button type="submit" onClick={getData}>Search</button>
       </form>
+      {data.length && !loading ? (
+        <>
         {
           data.map((item, i) => 
           <div key={i} className='more'>
@@ -40,6 +49,10 @@ function Home() {
           </div>
             )
         }
+        </>
+      ) : (
+        !loading && !data.length && (<p>Page{data.message}</p>)
+      )}
     </div>
   )
 }
