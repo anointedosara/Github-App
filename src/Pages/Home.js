@@ -13,7 +13,7 @@ function Home() {
 
     const getData = async () => {
       setIsLoading(true)
-      fetch(`https://api.github.com/users/${search}`)
+      fetch(`https://api.github.com/uhs j,sers/${search}`)
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
@@ -42,7 +42,10 @@ function Home() {
               <h1>{item?.login}</h1>
               <button><Link to={search === '' ? '/' : `/user/${item?.login}`}>More</Link></button>
           </div>
-            ) : <h1>LOADING...</h1>
+            ) : <div class='more'>
+              <img style={{width: '100px'}} src="https://forge.codesys.com/forge/support/_discuss/thread/6f37666443/dbe4/attachment/ajax-loader.gif" alt="" />
+              <h1>LOADING...</h1>
+            </div>
         }
     </div>
   )

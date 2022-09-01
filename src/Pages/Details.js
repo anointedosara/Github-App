@@ -56,7 +56,10 @@ function Details() {
             <p>Website: {item.blog}</p>
           </div>
         </div>
-      ) : <div>LOADING...</div>
+      ) : <div class='more'>
+      <img style={{width: '100px'}} src="https://forge.codesys.com/forge/support/_discuss/thread/6f37666443/dbe4/attachment/ajax-loader.gif" alt="" />
+      <h1>LOADING...</h1>
+    </div>
     }
 
       {!isLoading ?
@@ -67,13 +70,19 @@ function Details() {
           <div style={{background: '#767676', margin: '3px 2px'}}><i className="fa-brands fa-github"></i> Public Repos: {item.public_repos}</div>
           <div style={{background: '#1B1C1D', margin: '3px 0 3px 2px'}}><i className="fa-brands fa-github-alt"></i> Public Gists: {item.public_gists}</div>
         </div>
-        ) : <div>LOADING...</div>
+        ) : <div class='more'>
+        <img style={{width: '100px'}} src="https://forge.codesys.com/forge/support/_discuss/thread/6f37666443/dbe4/attachment/ajax-loader.gif" alt="" />
+        <h1>LOADING...</h1>
+      </div>
       }
 
         <div className='repos'>
           {!isLoading ?
             repo.map((item) => item.map((ite, i) => <div key={i}><a href={ite.html_url}>{ite.name}</a></div>)
-          ) : <h1>LOADING...</h1>
+          ) : <div class='more'>
+          <img style={{width: '100px'}} src="https://forge.codesys.com/forge/support/_discuss/thread/6f37666443/dbe4/attachment/ajax-loader.gif" alt="" />
+          <h1>LOADING...</h1>
+        </div>
         }
         </div>
     </div>
