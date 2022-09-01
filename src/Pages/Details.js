@@ -5,22 +5,27 @@ function Details() {
     const params = useParams()
     const [data, setData] = useState([])
     const [repo, setRepo] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     const getData = async () => {
+      setIsLoading(true)
         fetch(`https://api.github.com/users/${params.user}`)
         .then((data) => data.json())
         .then((data) => {
           // console.log(data);
           setData([data]);
+          setIsLoading(false)
         });
       }
 
       const getRepo = async () => {
+        setIsLoading(true)
         fetch(`https://api.github.com/users/${params.user}/repos`)
         .then((repo) => repo.json())
         .then((repo) => {
           console.log(repo);
           setRepo([repo]);
+          setIsLoading(false)
         });
       }
 
@@ -33,7 +38,7 @@ function Details() {
   return (
     <div className='details'>
       <button className='back-btn'><Link to='/'><i className="fa-solid fa-arrow-left"></i> Back To Search</Link></button>
-      {
+      {!isLoading ?
         data.map((item, i) => 
         <div key={i} className="profile-container">
           <div className='avatar-section'>
@@ -51,9 +56,10 @@ function Details() {
             <p>Website: {item.blog}</p>
           </div>
         </div>
-      )}
+      ) : <div>LOADING...</div>
+    }
 
-      {
+      {!isLoading ?
         data.map((item, i) => 
         <div key={i} className='connections'>
           <div style={{background: '#DB2828', margin: '3px 2px 3px 0'}}><i className="fa-solid fa-users-line"></i> Followers: {item.followers}</div>
@@ -61,12 +67,14 @@ function Details() {
           <div style={{background: '#767676', margin: '3px 2px'}}><i className="fa-brands fa-github"></i> Public Repos: {item.public_repos}</div>
           <div style={{background: '#1B1C1D', margin: '3px 0 3px 2px'}}><i className="fa-brands fa-github-alt"></i> Public Gists: {item.public_gists}</div>
         </div>
-        )}
+        ) : <div>LOADING...</div>
+      }
 
         <div className='repos'>
-          {
+          {!isLoading ?
             repo.map((item) => item.map((ite, i) => <div key={i}><a href={ite.html_url}>{ite.name}</a></div>)
-          )}
+          ) : <h1>LOADING...</h1>
+        }
         </div>
     </div>
   )
