@@ -7,6 +7,7 @@ function Home() {
 
     const handleSubmit = (e) => {
       e.preventDefault()
+
     }
 
     const getData = async () => {
@@ -36,7 +37,7 @@ function Home() {
           <div key={i} className='more'>
               <img src={item?.avatar_url} alt="" />
               <h1>{item?.login}</h1>
-              <button><Link to={`/user/${item?.login}`}>More</Link></button>
+              <button><Link to={search === '' ? '/' : `/user/${item?.login}`}>More</Link></button>
           </div>
             )
         }

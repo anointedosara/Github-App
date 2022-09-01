@@ -22,13 +22,13 @@ const handleClick = () => {
         </div>
         <div className={display ? 'show' : 'hide'}>
           <Link to='/'>
-            <div>
+            <div onClick={() => setDisplay(!display)}>
               <i className="fa-solid fa-house-chimney"></i>
               <p>Home</p>
             </div>
           </Link>
           <Link to='/about'>
-            <div>
+            <div onClick={() => setDisplay(!display)}>
               <i className="fa-solid fa-info"></i>
               <p>About</p>
             </div>
