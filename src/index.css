@@ -121,7 +121,13 @@ code {
   max-width: 1540px;
   width: 1127px;
   margin: 0 auto;
-  padding: 14px 0 0 0;
+}
+
+.home form {
+  position: sticky;
+  top: 40px;
+  background: white;
+  padding-top: 20px;
 }
 
 .home div {
@@ -168,6 +174,19 @@ code {
   box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%) !important;
 }
 
+.loader {
+  text-align: center;
+  margin-top: 14px;
+  width: 100% !important;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px !important;
+  border: none !important;
+}
+
 .more img {
   width: 80px;
   border-radius: 50%;
@@ -189,6 +208,23 @@ code {
 .more button a {
   text-decoration: none;
   color: white;
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border: none !important;
+  padding: 0 !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -290,6 +326,15 @@ code {
   }
   .drop {
     display: block;
+  }
+}
+@media screen and (max-width: 560px) {
+  .user-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .more {
+    width: 100% !important;
   }
 }
 @media screen and (max-width: 375px) {
